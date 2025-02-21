@@ -35,7 +35,9 @@ pico_sdk_init()
 
 # Add executable. Default name is the project name, version 0.1
 
-add_executable(Projeto Projeto.c )
+add_executable(Projeto Projeto.c 
+lib/ssd1306.c
+ )
 
 pico_set_program_name(Projeto "Projeto")
 pico_set_program_version(Projeto "0.1")
@@ -46,7 +48,8 @@ pico_enable_stdio_usb(Projeto 1)
 
 # Add the standard library to the build
 target_link_libraries(Projeto
-        pico_stdlib)
+        pico_stdlib hardware_i2c hardware_adc
+               hardware_pwm)
 
 # Add the standard include files to the build
 target_include_directories(Projeto PRIVATE
@@ -55,7 +58,9 @@ target_include_directories(Projeto PRIVATE
 
 # Add any user requested libraries
 target_link_libraries(Projeto 
-        
+    hardware_pio
+    hardware_clocks
+    hardware_i2c        
         )
 
 pico_add_extra_outputs(Projeto)
