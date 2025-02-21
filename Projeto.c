@@ -29,6 +29,13 @@ int main()
 {
     stdio_init_all();
 
+    // Inicializa I2C
+    i2c_init(i2c0, 400 * 1000);  // 400kHz
+    gpio_set_function(I2C_SDA, GPIO_FUNC_I2C);
+    gpio_set_function(I2C_SCL, GPIO_FUNC_I2C);
+    gpio_pull_up(I2C_SDA);
+    gpio_pull_up(I2C_SCL);
+
     while (true) {
         printf("Hello, world!\n");
         sleep_ms(1000);
