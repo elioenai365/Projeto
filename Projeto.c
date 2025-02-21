@@ -36,6 +36,9 @@ int main()
     gpio_pull_up(I2C_SDA);
     gpio_pull_up(I2C_SCL);
 
+     // Inicializa display SSD1306
+     ssd1306_init(&oled, 128, 64, 0x3C, i2c0);
+
     while (true) {
         printf("Hello, world!\n");
         sleep_ms(1000);
