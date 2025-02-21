@@ -48,3 +48,4 @@ void ssd1306_vline(ssd1306_t *ssd, uint8_t x, uint8_t y0, uint8_t y1, bool value
 void ssd1306_draw_char(ssd1306_t *ssd, char c, uint8_t x, uint8_t y);
 void ssd1306_draw_string(ssd1306_t *ssd, const char *str, uint8_t x, uint8_t y);
 void ssd1306_clear(ssd1306_t *ssd);
+void ssd1306_draw_rect(ssd1306_t *ssd, int x, int y, int width, int height, bool fill);
