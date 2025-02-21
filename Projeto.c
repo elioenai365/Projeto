@@ -17,6 +17,12 @@
 #define SCREEN_HEIGHT 64
 #define SQUARE_SIZE 8
 
+ssd1306_t oled;
+
+// Função para mapear valores do ADC para coordenadas da tela
+uint8_t map_adc_to_screen(uint16_t adc_value, uint8_t max_screen) {
+    return (adc_value * max_screen) / 4095;
+}
 
 
 int main()
