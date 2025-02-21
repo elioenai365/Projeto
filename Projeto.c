@@ -49,6 +49,21 @@ int main()
     uint8_t y = (SCREEN_HEIGHT - SQUARE_SIZE) / 2;
 
     while (true) {
+
+        // Leitura do eixo X
+        adc_select_input(0);
+        uint16_t x_value = adc_read();
+        x = map_adc_to_screen(x_value, SCREEN_WIDTH - SQUARE_SIZE);
+
+        // Leitura do eixo Y
+        adc_select_input(1);
+        uint16_t y_value = adc_read();
+        y = map_adc_to_screen(y_value, SCREEN_HEIGHT - SQUARE_SIZE);
+
+        // Atualiza display
+        ssd1306_clear(&oled);
+        ssd1306_draw_rect(&oled, x, y, SQUARE_SIZE, SQUARE_SIZE, true);
+        ssd1306_show(&oled);
         printf("Hello, world!\n");
         sleep_ms(1000);
     }
