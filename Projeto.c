@@ -39,6 +39,15 @@ int main()
      // Inicializa display SSD1306
      ssd1306_init(&oled, 128, 64, 0x3C, i2c0);
 
+     // Inicializa ADC
+    adc_init();
+    adc_gpio_init(JOYSTICK_X);
+    adc_gpio_init(JOYSTICK_Y);
+
+    // Posição inicial centralizada
+    uint8_t x = (SCREEN_WIDTH - SQUARE_SIZE) / 2;
+    uint8_t y = (SCREEN_HEIGHT - SQUARE_SIZE) / 2;
+
     while (true) {
         printf("Hello, world!\n");
         sleep_ms(1000);
