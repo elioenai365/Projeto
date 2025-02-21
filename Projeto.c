@@ -37,7 +37,7 @@ int main()
     gpio_pull_up(I2C_SCL);
 
      // Inicializa display SSD1306
-     ssd1306_init(&oled, 128, 64, 0x3C, i2c0);
+     ssd1306_init(&oled, 128, 64,true, 0x3C, i2c0);
 
      // Inicializa ADC
     adc_init();
